@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="blue_soft">#333676</color>
+    <color name="blue_dark">#191C59</color>
+    <color name="red_soft">#AA3C39</color>
+    <color name="green_soft">#2D8633</color>
+    <color name="green_light">#30C650</color>
+    <color name="gold_soft">#AA8C39</color>
+    <color name="gold_dark">#806415</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="card_bg">#EAEAEA</color>
+</resources>

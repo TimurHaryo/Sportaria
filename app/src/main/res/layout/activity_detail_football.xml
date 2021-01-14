@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.football.detail.DetailFootballActivity">
+
+    <data>
+        <variable
+            name="isLoadingBookmark"
+            type="Boolean" />
+
+        <variable
+            name="title"
+            type="String" />
+
+        <variable
+            name="year"
+            type="String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivFootballPosterDetail"
+            android:layout_width="match_parent"
+            android:layout_height="256dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/btnFootballBackToMain"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:cardCornerRadius="32dp"
+            app:cardElevation="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginStart="16dp"
+            android:backgroundTint="@color/card_bg"
+            android:alpha="0.6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" >
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/ic_baseline_chevron_left_24"/>
+        </com.google.android.material.card.MaterialCardView>
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="144dp"
+            android:background="@drawable/bg_fading_up"
+            app:layout_constraintBottom_toBottomOf="@+id/ivFootballPosterDetail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivFootballPosterDetail" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDetailFootballTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blue_soft"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:textSize="32sp"
+            android:paddingStart="16dp"
+            android:paddingEnd="0dp"
+            android:gravity="start"
+            android:text="@{title}"
+            android:justificationMode="inter_word"
+            android:breakStrategy="balanced"
+            tools:targetApi="o"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline4"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvFootballSince"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/bg_formed_year"
+            android:breakStrategy="balanced"
+            android:gravity="start"
+            android:justificationMode="inter_word"
+            android:paddingStart="16dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="8dp"
+            android:text="@{year}"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDetailFootballTitle"
+            tools:targetApi="o"
+            tools:text="- 1998 -" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnFootballUpdateBookmarkStatus"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="@drawable/bg_btn_bookmark"
+            android:padding="12dp"
+            android:clickable="@{!isLoadingBookmark}"
+            android:focusable="@{!isLoadingBookmark}"
+            app:layout_constraintBottom_toBottomOf="@+id/ivFootballPosterDetail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivFootballPosterDetail"
+            app:srcCompat="@drawable/ic_notbookmarked_white" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/pagerFootballCardDetail"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="96dp"
+            android:padding="40dp"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.56" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="227dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

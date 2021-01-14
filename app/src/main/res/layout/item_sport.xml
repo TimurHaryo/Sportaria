@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+
+        <variable
+            name="title"
+            type="String" />
+
+        <variable
+            name="isFromBookmark"
+            type="Boolean" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardContentSport"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/card_bg">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivPosterListSport"
+                android:layout_width="144dp"
+                android:layout_height="96dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitleListSport"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:gravity="center"
+                android:text="@{title}"
+                android:textColor="@color/blue_dark"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btnDeleteSport"
+                app:layout_constraintStart_toEndOf="@+id/ivPosterListSport"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Soccer" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btnDeleteSport"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:background="@color/red_soft"
+                android:padding="4dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:visibility="@{isFromBookmark ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_baseline_clear_24"
+                app:tint="@color/card_bg" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

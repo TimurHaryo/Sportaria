@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.football.all.FootballFragment">
+
+    <data>
+        <import type="android.view.View"/>
+
+        <variable
+            name="status"
+            type="Boolean" />
+
+        <variable
+            name="hasItem"
+            type="Boolean" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/layoutFootball"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="24sp"
+            android:text="@string/teams"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/blue_soft"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/swipeRefreshFootball"
+                setLoadingSRL="@{status}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:visibility="@{hasItem ? View.VISIBLE : View.GONE, default = visible}">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvFootballs"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingStart="24dp"
+                            android:paddingEnd="24dp"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            tools:listitem="@layout/item_football"/>
+                    </LinearLayout>
+                </ScrollView>
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+            <include
+                android:id="@+id/noFootballData"
+                layout="@layout/view_empty_data_connection"
+                android:visibility="@{hasItem ? View.GONE : View.VISIBLE, default = gone}"/>
+        </FrameLayout>
+    </LinearLayout>
+
+</layout>
